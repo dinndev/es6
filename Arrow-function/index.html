@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <title>es6</title>
+</head>
+<body>
+    <style>
+
+.wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+width: 100px;
+height: 100px;
+background-image: url('./rain.jpg');
+background-repeat: none;
+background-position: right;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+/* filter: blur(1px); */
+cursor: pointer;
+/* z-index: 1; */
+}
+a ,p {
+  text-decoration: none;
+  color: white;
+  transform: translateX(150%);
+
+}
+h1 {
+    font-family: 'Oswald', sans-serif;
+    transform: translateX(-150%);
+    color: white;
+} 
+
+.opening {
+    width: 100%;
+    height: 70%;
+    background-position: center;
+    background-size: cover;
+    transition: height 1s, width 1.5s;
+
+}
+ .box.open > * {
+  transform: translateX(0%);
+  transition: all 0.5s;
+}
+
+
+
+    </style>
+    <div class="wrapper">
+    <div class="box">
+    <h1 class="hero">Din</h1>
+    <p>@dinndev</p>
+    </div>
+    </div>
+<script>
+ const box = document.querySelector('.box');
+
+box.addEventListener('click' , function(){
+    this.classList.toggle('opening');
+
+    let opening = 'opening';
+    let open = 'open'
+   if(this.classList.contains(opening)){
+     [opening,open] = [open,opening];
+   }
+      setTimeout(_=> {  
+    this.classList.add('open')
+    },500)
+} )
+</script>
+</body>
+</html>
